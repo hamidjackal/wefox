@@ -1,13 +1,11 @@
 ## Description
 
-Challenge for aladdin Senior Node.js developer position.
+Challenge for wefox Senior Node.js developer position.
 
 ## Notes
 
-- This is a http service with two modules: Orders and Payments
-- The payment service covers two payment methods : on-site and offsite, which is using Stripe service
-- Because this service is not using HTTPS and TLS so it's not safe to use the on-site payment method and it's been developed only for testing purposes.
-- There is an .env file which I did not put in .gitignore so testing and working with the service becomes more easily.
+- This is a http service with two modules: Users and AddressServices
+- There is an .env file which I did not put in .gitignore so testing and working with the service becomes more easily(if you run the server with docker compose there would be no need for the .env file).
 
 ## Installation
 
@@ -19,8 +17,6 @@ $ npm install
 
 ```bash
 # make sure the .env file is set correctly
-# development
-$ npm run start
 
 # watch mode
 $ npm run start:dev
@@ -45,22 +41,18 @@ $ docker-compose up
 
 ```bash
 # unit tests
-$ npm run test
+$ npm run test:unit
 
-# test coverage
-$ npm run test:cov
+# integration tests
+$ npm run test:integration
 ```
 
 ## Documentation
 
 The postman documents are available in ./documents directory
 
-## Diagrams
-
-The diagrams are available in ./diagrams directory
-
 ## Stay in touch
 
 - Author - Hamid Tehrani
-- Company - Aladdin
+- Company - Wefox
 - Email - hamid.tehrani2003@gmail.com
