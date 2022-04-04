@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  wefox:
+    container_name: wefox
+    depends_on:
+      - db
+    build:
+      context: ./server/
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - wefox-network
+    environment:
+      JWT_ACCESS_KEY: jwtAccessKey
+      JWT_REFRESH_KEY: jwtRefreshKey
+      MONGO_URI: mongodb://db:27017/wefox
+      OPEN_WEATHER_API_KEY: b6212dbe8202b1d7f7f28ea33e6d2d01
+      GOOGLE_API_KEY: AIzaSyBg8c3fi3uLD-rQhrVCKnoIqrY59vIuu6M
+      REDIS_URL: redis://cache
+    volumes:
+      - .:/usr/src/app
+    restart: unless-stopped
+
+  server:
+    container_name: server
+    build:
+      context: ./nginx/
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:80
+      - 4430:443
+    networks:
+      - wefox-network
+    restart: unless-stopped
+
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+    networks:
+      - wefox-network
+    volumes:
+      - cache:/data
+
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_volume:/data/db
+    networks:
+      - wefox-network
+    restart: always
+
+volumes:
+  mongo_volume:
+  cache:
+networks:
+  wefox-network:

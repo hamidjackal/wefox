@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "1cb34a53-fad1-41a3-b399-f489136d2fb4",
+		"name": "Wefox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "SIGNIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDgyMTdiYzIzOTUyMGVkZDk2OWM5MyIsImVtYWlsIjoidGVzdDRAdGVzdC5jb20iLCJpYXQiOjE2NDg4OTQzMzF9.w18LtEMeWSQAB5dmmKirkHQk_e6A6w1KesqUPCGvehc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/users/signin",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SIGNUP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test4@test.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/users/signup",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REFRESH TOKEN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test4@test.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/users/refresh-token",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address Services",
+			"item": [
+				{
+					"name": "GET WEATHER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDk4OTFiNzk5NDdlOTM0NDM5NGNiYSIsImVtYWlsIjoidGVzdDVAdGVzdC5jb20iLCJpYXQiOjE2NDg5ODYzOTUsImV4cCI6MTY0OTAyMjM5NX0.TYg9nlf3F6t-Ja39QNLdhgVWk4OPTOCt9w1GaSLKRos",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lat\": 16.4,\n    \"lon\": 45.4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/address-services/weather",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"address-services",
+								"weather"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VALIDATE ADDRESS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"streetNumber\": \"135\",\n    \"streetName\": \"Pilkington Avenue\",\n    \"town\": \"birmingham\",\n    \"state\": \"\",\n    \"postalCode\": \"B72\",\n    \"country\": \"United Kingdom\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/address-services/validate",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"address-services",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
